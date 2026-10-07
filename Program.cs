@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Pet_Shop.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<PetShopContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 
